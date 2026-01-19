@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-stack",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-01-19T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.business.att.com/",
+    "originPage": "AT&T Business homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "story-stack",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + description + link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "industry/sector links",
+      "solution categories",
+      "story stack layouts with icons"
+    ],
+    "notSuitableFor": [
+      "promotional cards",
+      "product listings with large images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-19T00:00:00.000Z"
+  }
+}

@@ -1,0 +1,28 @@
+.cards-stack > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.cards-stack > ul > li {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.cards-stack .cards-stack-card-body {
+  margin: 8px 0;
+}
+
+.cards-stack .cards-stack-card-image {
+  line-height: 0;
+}
+
+.cards-stack > ul > li img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}

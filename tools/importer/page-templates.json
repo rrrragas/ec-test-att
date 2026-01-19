@@ -1,0 +1,37 @@
+{
+  "templates": [
+    {
+      "name": "att-business-homepage",
+      "urls": ["https://www.business.att.com/"],
+      "description": "AT&T Business homepage with promotional cards, hero sections, value props, product cards, and link farm",
+      "blocks": [
+        {
+          "name": "cards-promo",
+          "instances": ["section.hero-flex-cards"]
+        },
+        {
+          "name": "hero-banner",
+          "instances": [
+            "section.hero[data-theme='dark']",
+            "section.hero[data-theme='light']"
+          ]
+        },
+        {
+          "name": "cards-grid",
+          "instances": [
+            "section.value-props",
+            "section.multi-tile-cards"
+          ]
+        },
+        {
+          "name": "cards-stack",
+          "instances": ["section.story-stack"]
+        },
+        {
+          "name": "columns-links",
+          "instances": ["section.link-farm"]
+        }
+      ]
+    }
+  ]
+}

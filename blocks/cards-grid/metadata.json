@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-grid",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-01-19T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.business.att.com/",
+    "originPage": "AT&T Business homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "product-cards",
+    "imagePattern": "icon-or-image"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product/service listings",
+      "feature grids",
+      "value proposition cards",
+      "icon-based feature cards"
+    ],
+    "notSuitableFor": [
+      "promotional cards with background images",
+      "story stack layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-19T00:00:00.000Z"
+  }
+}

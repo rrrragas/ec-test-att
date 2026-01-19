@@ -1,0 +1,29 @@
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.cards-promo > ul > li {
+  border: 1px solid #dadada;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cards-promo .cards-promo-card-body {
+  margin: 16px;
+}
+
+.cards-promo .cards-promo-card-image {
+  line-height: 0;
+}
+
+.cards-promo > ul > li img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
