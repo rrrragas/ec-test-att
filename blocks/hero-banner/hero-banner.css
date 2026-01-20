@@ -1,3 +1,12 @@
+/*
+ * Hero Banner Block - AT&T Business Style
+ * Full-width hero with background image/color
+ */
+
+.hero-banner-container {
+  background-color: var(--background-color-dark);
+}
+
 .hero-banner-container .hero-banner-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,34 +14,148 @@
 
 .hero-banner {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
-
-.hero-banner h1,
-.hero-banner h2 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero-banner picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero-banner img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  padding: var(--spacing-xl) var(--spacing-m);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-color-inverse);
+  overflow: hidden;
 }
 
 @media (width >= 900px) {
   .hero-banner {
-    padding: 40px 32px;
+    padding: var(--spacing-xxl) var(--spacing-l);
+    min-height: 500px;
   }
+}
+
+/* Background image positioning */
+.hero-banner > div:first-child picture,
+.hero-banner picture:first-child {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.hero-banner > div:first-child picture img,
+.hero-banner picture:first-child img,
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay for better text readability */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  z-index: 1;
+}
+
+/* Content container */
+.hero-banner > div:last-child,
+.hero-banner > p,
+.hero-banner > h1,
+.hero-banner > h2,
+.hero-banner > h3 {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 var(--spacing-m);
+}
+
+@media (width >= 900px) {
+  .hero-banner > div:last-child,
+  .hero-banner > p,
+  .hero-banner > h1,
+  .hero-banner > h2,
+  .hero-banner > h3 {
+    max-width: 50%;
+    margin-left: var(--spacing-xl);
+    padding: 0;
+  }
+}
+
+/* Tag/label above heading */
+.hero-banner p:first-of-type strong {
+  display: inline-block;
+  background-color: var(--color-att-blue-light);
+  color: var(--text-color-dark);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--border-radius-s);
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-banner h1,
+.hero-banner h2 {
+  color: var(--text-color-inverse);
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.1;
+  margin: 0 0 var(--spacing-s);
+}
+
+@media (width >= 900px) {
+  .hero-banner h1,
+  .hero-banner h2 {
+    font-size: var(--heading-font-size-xxl);
+  }
+}
+
+.hero-banner p {
+  color: var(--text-color-inverse);
+  font-size: var(--body-font-size-l);
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-s);
+}
+
+.hero-banner em {
+  display: block;
+  font-size: var(--body-font-size-s);
+  color: rgba(255, 255, 255, 0.7);
+  font-style: normal;
+  margin-top: var(--spacing-s);
+}
+
+/* CTA Buttons */
+.hero-banner strong a,
+.hero-banner p a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 var(--spacing-l);
+  background-color: var(--color-att-blue-pale);
+  color: var(--color-att-blue-dark);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+  margin-right: var(--spacing-s);
+  margin-top: var(--spacing-s);
+}
+
+.hero-banner strong a:hover,
+.hero-banner p a.button:hover {
+  background-color: var(--text-color-inverse);
+}
+
+/* Secondary link */
+.hero-banner a:not(.button):not(strong a) {
+  color: var(--color-att-blue-pale);
+  text-decoration: underline;
+}
+
+.hero-banner a:not(.button):not(strong a):hover {
+  color: var(--text-color-inverse);
 }

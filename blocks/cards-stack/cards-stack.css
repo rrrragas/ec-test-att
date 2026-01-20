@@ -1,28 +1,171 @@
+/*
+ * Cards Stack Block - AT&T Business Style
+ * Horizontal icon + content cards in a row/grid layout
+ */
+
+.cards-stack-container {
+  background-color: var(--background-color);
+}
+
+.cards-stack > div:first-child {
+  text-align: center;
+  margin-bottom: var(--spacing-l);
+}
+
+.cards-stack > div:first-child h2 {
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.cards-stack > div:first-child p {
+  color: var(--text-color-subtle);
+  font-size: var(--body-font-size-l);
+}
+
 .cards-stack > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+@media (width >= 600px) {
+  .cards-stack > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 1024px) {
+  .cards-stack > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .cards-stack > ul > li {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-s);
   background-color: var(--background-color);
-  border-radius: 8px;
-  padding: 16px;
+  border: 1px solid var(--background-color-light);
+  border-radius: var(--border-radius-m);
+  padding: var(--spacing-m);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
 }
 
-.cards-stack .cards-stack-card-body {
-  margin: 8px 0;
+.cards-stack > ul > li:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .cards-stack .cards-stack-card-image {
-  line-height: 0;
+  flex-shrink: 0;
 }
 
-.cards-stack > ul > li img {
+.cards-stack .cards-stack-card-image img {
   width: 48px;
   height: 48px;
   object-fit: contain;
+}
+
+.cards-stack .cards-stack-card-body {
+  margin: 0;
+  flex: 1;
+}
+
+.cards-stack .cards-stack-card-body p {
+  margin: 0;
+}
+
+.cards-stack .cards-stack-card-body strong {
+  display: block;
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-xxs);
+  line-height: 1.3;
+}
+
+.cards-stack .cards-stack-card-body p {
+  font-size: var(--body-font-size-s);
+  color: var(--text-color-subtle);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-xs);
+}
+
+.cards-stack .cards-stack-card-body a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--link-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.cards-stack .cards-stack-card-body a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.cards-stack .cards-stack-card-body a::after {
+  content: ' →';
+  margin-left: var(--spacing-xxs);
+  transition: transform var(--transition-fast);
+}
+
+.cards-stack .cards-stack-card-body a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Vertical variant - stacked layout */
+.cards-stack.vertical > ul > li {
+  flex-direction: column;
+  text-align: center;
+}
+
+.cards-stack.vertical .cards-stack-card-image {
+  margin-bottom: var(--spacing-s);
+}
+
+.cards-stack.vertical .cards-stack-card-image img {
+  width: 64px;
+  height: 64px;
+}
+
+/* Feature cards with background images */
+.cards-stack.featured > ul > li {
+  position: relative;
+  min-height: 200px;
+  padding: var(--spacing-l);
+  background-color: var(--background-color-dark);
+  color: var(--text-color-inverse);
+  overflow: hidden;
+}
+
+.cards-stack.featured .cards-stack-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cards-stack.featured .cards-stack-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards-stack.featured .cards-stack-card-body {
+  position: relative;
+  z-index: 2;
+}
+
+.cards-stack.featured .cards-stack-card-body strong,
+.cards-stack.featured .cards-stack-card-body p {
+  color: var(--text-color-inverse);
+}
+
+.cards-stack.featured .cards-stack-card-body a {
+  color: var(--color-att-blue-pale);
 }

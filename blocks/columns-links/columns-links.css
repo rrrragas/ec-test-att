@@ -1,35 +1,57 @@
+/*
+ * Columns Links Block - AT&T Business Style
+ * Multi-column link lists for navigation/footer sections
+ */
+
+.columns-links-container {
+  background-color: var(--background-color-light);
+}
+
+.columns-links-container .columns-links-wrapper {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.columns-links > div:first-child {
+  text-align: center;
+  margin-bottom: var(--spacing-l);
+}
+
+.columns-links > div:first-child h2 {
+  font-size: var(--heading-font-size-l);
+  margin: 0 0 var(--spacing-xs);
+}
+
 .columns-links > div {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
 }
 
-.columns-links img {
-  width: 100%;
-}
-
-.columns-links > div > div {
-  order: 1;
-}
-
-.columns-links > div > .columns-links-img-col {
-  order: 0;
-}
-
-.columns-links > div > .columns-links-img-col img {
-  display: block;
+@media (width >= 600px) {
+  .columns-links > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (width >= 900px) {
   .columns-links > div {
-    align-items: flex-start;
-    flex-direction: unset;
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
   }
+}
 
-  .columns-links > div > div {
-    flex: 1;
-    order: unset;
-  }
+.columns-links > div > div {
+  /* Individual column */
+}
+
+.columns-links h3,
+.columns-links h4 {
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  color: var(--text-color-dark);
+  margin: 0 0 var(--spacing-s);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-att-blue);
 }
 
 .columns-links ul {
@@ -39,13 +61,72 @@
 }
 
 .columns-links li {
-  margin-bottom: 8px;
+  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-xxs) 0;
 }
 
 .columns-links a {
+  color: var(--text-color-subtle);
+  font-size: 15px;
+  line-height: 1.4;
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .columns-links a:hover {
+  color: var(--link-color);
   text-decoration: underline;
+}
+
+/* Link column with image/icon header */
+.columns-links .columns-links-img-col img {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: var(--spacing-s);
+}
+
+/* Compact variant - smaller text, tighter spacing */
+.columns-links.compact li {
+  margin-bottom: var(--spacing-xxs);
+}
+
+.columns-links.compact a {
+  font-size: var(--body-font-size-s);
+}
+
+/* Dark variant for footer */
+.columns-links.dark {
+  background-color: var(--background-color-dark);
+}
+
+.columns-links.dark h3,
+.columns-links.dark h4 {
+  color: var(--text-color-inverse);
+  border-bottom-color: var(--color-att-blue-light);
+}
+
+.columns-links.dark a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.columns-links.dark a:hover {
+  color: var(--text-color-inverse);
+}
+
+/* Featured links with icons */
+.columns-links.featured li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.columns-links.featured li::before {
+  content: '→';
+  color: var(--color-att-blue);
+  font-weight: bold;
+}
+
+.columns-links.featured a:hover {
+  padding-left: var(--spacing-xxs);
 }

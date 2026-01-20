@@ -1,29 +1,124 @@
+/*
+ * Cards Promo Block - AT&T Business Style
+ * Hero flex cards with background images
+ */
+
+.cards-promo-container {
+  background-color: var(--background-color-light);
+}
+
 .cards-promo > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+@media (width >= 600px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 1200px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .cards-promo > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-  border-radius: 8px;
+  position: relative;
+  background-color: var(--background-color-dark);
+  border-radius: var(--border-radius-m);
   overflow: hidden;
-}
-
-.cards-promo .cards-promo-card-body {
-  margin: 16px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards-promo .cards-promo-card-image {
-  line-height: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
-.cards-promo > ul > li img {
+.cards-promo .cards-promo-card-image picture,
+.cards-promo .cards-promo-card-image img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
+}
+
+.cards-promo .cards-promo-card-body {
+  position: relative;
+  z-index: 2;
+  padding: var(--spacing-m);
+  margin-top: auto;
+  color: var(--text-color-inverse);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+}
+
+.cards-promo .cards-promo-card-body p {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+}
+
+.cards-promo .cards-promo-card-body p:first-child strong {
+  display: inline-block;
+  background-color: var(--color-att-blue-light);
+  color: var(--text-color-dark);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--border-radius-s);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cards-promo .cards-promo-card-body h3 {
+  color: var(--text-color-inverse);
+  font-size: var(--heading-font-size-m);
+  margin: 0 0 var(--spacing-xs);
+  line-height: 1.2;
+}
+
+.cards-promo .cards-promo-card-body em {
+  display: block;
+  font-size: var(--body-font-size-s);
+  color: var(--text-color-muted);
+  font-style: normal;
+  margin-top: var(--spacing-xs);
+}
+
+.cards-promo .cards-promo-card-body a {
+  color: var(--color-att-blue-pale);
+}
+
+.cards-promo .cards-promo-card-body a:hover {
+  color: var(--text-color-inverse);
+}
+
+.cards-promo .cards-promo-card-body strong a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 var(--spacing-l);
+  background-color: var(--color-att-blue-pale);
+  color: var(--color-att-blue-dark);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+  margin-top: var(--spacing-s);
+}
+
+.cards-promo .cards-promo-card-body strong a:hover {
+  background-color: var(--text-color-inverse);
+  color: var(--color-att-blue-dark);
 }
