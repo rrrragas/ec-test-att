@@ -3,9 +3,9 @@
  */
 
 footer {
-  background-color: var(--background-color);
+  background-color: var(--background-color-light);
   font-size: var(--body-font-size-m);
-  border-top: 1px solid var(--background-color-light);
+  border-top: none;
 }
 
 footer .footer > div {
@@ -30,7 +30,7 @@ footer .footer-top {
   flex-direction: column;
   gap: var(--spacing-m);
   padding-bottom: var(--spacing-l);
-  border-bottom: 1px solid var(--background-color-light);
+  border-bottom: 1px solid #ddd;
   margin-bottom: var(--spacing-l);
 }
 
@@ -98,7 +98,7 @@ footer .footer-nav {
 }
 
 footer .footer-nav-section {
-  border-bottom: 1px solid var(--background-color-light);
+  border-bottom: 1px solid #ddd;
 }
 
 @media (width >= 900px) {
